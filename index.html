@@ -1,0 +1,545 @@
+<html>
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139693929-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-139693929-1');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1150518549014527",
+            enable_page_level_ads: true
+        });
+    </script>
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css"/>
+    <style type="text/css">
+        .row {
+            display: flex;
+        }
+
+        .top-buffer {
+            margin-top: 20px;
+        }
+
+        .dark-theme {
+            color: #e1e1e1;
+            background-color: #333333;
+            transition: all 0.25s ease-out;
+        }
+
+        .btn-bork {
+            padding: 13px 20px;
+            font-size: 22px;
+            border-radius: 5px;
+        }
+
+        .bot-left {
+            position: fixed;
+            bottom: 5%;
+            left: 0;
+            max-width: 100px;
+            max-height: 100px;
+            z-index: 0;
+        }
+
+        .pimg {
+            width: 115px;
+            height: 95px;
+            position: absolute;
+            left: -25%;
+            animation: moveleftright;
+            animation-duration: 15s;
+            animation-delay: 10s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            z-index: -1;
+        }
+
+        @keyframes moveleftright {
+            0% {
+                left: -25%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        button.dog-btn {
+            width: 400px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 63px;
+        }
+
+        .dog-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .dog-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .dog {
+            font-size: 20px;
+            z-index: 1;
+        }
+        .cost {
+            font-size: 14px;
+            z-index: 1;
+        }
+        .number {
+            font-size: 40px;
+            line-height: 40px;
+        }
+
+        .dogimg {
+            display: flex;
+            justify-content: center;
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        .resetbut {
+            display: inline-block;
+        }
+
+        .slidecontainer {
+            width: 100%;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background: #28acaf;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background: #28acaf;
+            cursor: pointer;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            background-color: #fff;
+            color: #cdcdcd;
+            transition: all 0.25s ease-out;
+            touch-action: manipulation;
+        }
+
+        .wrapper {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            flex-direction: column;
+            overflow: hidden !important;
+            position: fixed;
+            background: transparent;
+
+        }
+
+        .btn-group {
+            width: 100%;
+            height: 5vh;
+        }
+
+        .btn {
+            border-radius: 0 !important;
+            color: #cdcdcd;
+        }
+
+        .dropdown-menu {
+            width: 100%;
+            background-image: url('Res/IM/page.png');
+            background-size: 100% 100%;
+            background-color: transparent;
+            border: none;
+            margin: 0;
+        }
+
+        .dropdown-item:hover {
+            background-image: none !important;
+            background-color: transparent;
+        }
+
+        .debugcontainer {
+            background-color: #4e555b;
+        }
+
+        .btn:focus, .btn:active {
+            outline: none !important;
+            box-shadow: none;
+        }
+
+        .settings {
+            margin-left: 1%;
+        }
+
+        .col-md-auto {
+            padding: 0;
+        }
+        .col-7 {
+            padding: 3%;
+        }
+        .modal {
+            color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+<div class="wrapper" id="PIC" style="background-image: url('Res/IM/board.png');">
+    <div class="container mt-5 h-100">
+        <div class="row">
+            <div class="col-12 flex-column align-self-center">
+                <div class="d-flex justify-content-center">
+                    <span style="font-family: 'Comic Sans MS'; font-weight:bold; font-size:30px;" id="borks">0 Borks</span>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <span style="font-family: 'Comic Sans MS'; font-weight:bold; font-size:25px;" id="BCA"></span>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button id="Bork" onclick="Bork()" type="button" class="btn btn-primary btn-bork">Bork!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="row no-gutters">
+            <div class="col">
+                <div class="btn-group dropup">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="collapse" data-target="#inv1" style="background-image: url('Res/IM/Plank_08.png'); background-size: 100% 100%;">
+                        Doggos
+                    </button>
+                    <div id="inv1" class="dropdown-menu" style="max-height: 60vh; overflow-y: auto;">
+                            <a href="#" data-toggle="collapse" data-target="#inv1" class="dropdown-header text-right close">X</a>
+                        <div class="dropdown-item row" id="UpgradeButtonRow">
+                            <button class="btn btn-default" id="BorkUpButton" onclick="brkup()" data-toggle="tooltip" data-placement="top" data-trigger="hover" data-original-title="Get 2 Borks Per Click">
+                                <img src="Res/IM/dogbark.png" style="max-width:45px; max-height:45px;"/>
+                            </button>
+                        </div>
+                        <div class="dropdown-item row" >
+                            <img src="Res/IM/line.png" style="width: 104%; height: 10%; display: flex; margin-left: 1%;">
+                        </div>
+                        <!---->
+                            <div class="dropdown-item row top-buffer" id="buypup">
+                                <div class="col-3" style="padding:0">
+                                    <img class="mx-auto d-block dogimg" src="Res/IM/unknownpup.png" id="pupimg">
+                                </div>
+                                <div class="col-9" style="padding:0">
+                                    <button id="buypupbut" class="dog-btn btn btn-primary w-100" onclick="BP()" data-toggle="tooltip" data-placement="left" data-trigger="hover" data-original-title="+.2 BPS">
+                                        <div class="dog-left">
+                                            <span class="dog" id="pupname">???</span>
+                                            <span class="cost" id="pucost">Cost: 10</span>
+                                        </div>
+                                        <div class="dog-right">
+                                            <span class="number" id="punum"></span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="dropdown-item row top-buffer" id="buychi">
+                                <div class="col-3" style="padding:0">
+                                    <img class="mx-auto d-block dogimg" src="Res/IM/unknownchi.png" id="chiimg">
+                                </div>
+                                <div class="col-9" style="padding:0">
+                                    <button id="buychibut" class="dog-btn btn btn-primary w-100" onclick="BCH()" data-toggle="tooltip" data-placement="left" data-trigger="hover" data-original-title="+1 BPS">
+                                        <div class="dog-left">
+                                            <span class="dog" id="chiname">???</span>
+                                            <span class="cost" id="chcost">Cost: 100</span>
+                                        </div>
+                                        <div class="dog-right">
+                                            <span class="number" id="chnum"></span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="dropdown-item row top-buffer" id="buybea">
+                                <div class="col-3" style="padding:0">
+                                    <img class="mx-auto d-block dogimg" src="Res/IM/unknownbea.png" id="beaimg">
+                                </div>
+                                <div class="col-9" style="padding:0">
+                                    <button id="buybeabut" class="dog-btn btn btn-primary w-100" onclick="BB()" data-toggle="tooltip" data-placement="left" data-trigger="hover" data-original-title="+7 BPS">
+                                        <div class="dog-left">
+                                            <span class="dog" id="beaname">???</span>
+                                            <span class="cost" id="becost">Cost: 1k</span>
+                                        </div>
+                                        <div class="dog-right">
+                                            <span class="number" id="benum"></span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="dropdown-item row top-buffer" id="buybur">
+                                <div class="col-3" style="padding:0">
+                                    <img class="mx-auto d-block dogimg" src="Res/IM/unknownbur.png" id="burimg">
+                                </div>
+                                <div class="col-9" style="padding:0">
+                                    <button id="buyburbut" class="dog-btn btn btn-primary w-100" onclick="BMD()" data-toggle="tooltip" data-placement="left" data-trigger="hover" data-original-title="+35 BPS">
+                                        <div class="dog-left">
+                                            <span class="dog" id="burname">???</span>
+                                            <span class="cost" id="bucost">Cost: 8k</span>
+                                        </div>
+                                        <div class="dog-right">
+                                            <span class="number" id="bunum"></span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="dropdown-item row top-buffer" id="buygol">
+                                <div class="col-3" style="padding:0">
+                                    <img class="mx-auto d-block dogimg" src="Res/IM/unknowngold.png" id="golimg">
+                                </div>
+                                <div class="col-9" style="padding:0">
+                                    <button id="buygolbut" class="dog-btn btn btn-primary w-100" onclick="BGR()" data-toggle="tooltip" data-placement="left" data-trigger="hover" data-original-title="+245 BPS">
+                                        <div class="dog-left">
+                                            <span class="dog" id="golname">???</span>
+                                            <span class="cost" id="gocost">Cost: 90k</span>
+                                        </div>
+                                        <div class="dog-right">
+                                            <span class="number" id="gonum"></span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="dropdown-item row top-buffer" id="buyhus">
+                                <div class="col-3" style="padding:0">
+                                    <img class="mx-auto d-block dogimg" src="Res/IM/unknownhus.png" id="husimg">
+                                </div>
+                                <div class="col-9" style="padding:0">
+                                    <button id="buyhusbut" class="dog-btn btn btn-primary w-100" onclick="BH()" data-toggle="tooltip" data-placement="left" data-trigger="hover" data-original-title="+1200 BPS">
+                                        <div class="dog-left">
+                                            <span class="dog" id="husname">???</span>
+                                            <span class="cost" id="hucost">Cost: 750k</span>
+                                        </div>
+                                        <div class="dog-right">
+                                            <span class="number" id="hunum"></span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="btn-group dropup">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="collapse" data-target="#inv2" style="background-image: url('Res/IM/Plank_07.png'); background-size: 100% 100%;">
+                        Upgrades
+                    </button>
+                    <div id="inv2" class="dropdown-menu" style="max-height: 60vh;  overflow-y: auto;">
+                        <div class="overflow-auto" style="max-height: 58vh;">
+                            <a href="#" data-toggle="collapse" data-target="#inv2" class="dropdown-header text-right close">X</a>
+                            <h3 id="squeakcount" style="text-align:center">0 Squeaky Toys</h3>
+                            <div class="dropdown-item row top-buffer">
+                                <div class="col-12">
+                                    <button id="pupupgrade" class="dog-btn btn btn-light w-100" onclick="PupUpCheck()" data-toggle="tooltip" data-placement="left" data-trigger="hover" data-original-title="x1.5 Puppy BPS">
+                                        <div class="dog-left">
+                                            <span class="dog">Puppy Upgrade</span>
+                                            <span class="cost" id="pupupcost">Cost: 5 Squeaky Toys</span>
+                                        </div>
+                                        <div class="dog-right">
+                                            <span class="number" id="pupupnum"></span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="dropdown-item row top-buffer">
+                                <div class="col-12">
+                                    <button id="chiupgrade" class="dog-btn btn btn-light w-100" onclick="ChiUpCheck()" data-toggle="tooltip" data-placement="left" data-trigger="hover" data-original-title="x1.5 Chihuahua BPS">
+                                        <div class="dog-left">
+                                            <span class="dog">Chihuahua Upgrade</span>
+                                            <span class="cost" id="chiupcost">Cost: 5 Squeaky Toys</span>
+                                        </div>
+                                        <div class="dog-right">
+                                            <span class="number" id="chiupnum"></span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="dropdown-item row top-buffer">
+                                <div class="col-12">
+                                    <button id="beaupgrade" class="dog-btn btn btn-light w-100" onclick="BeaUpCheck()" data-toggle="tooltip" data-placement="left" data-trigger="hover" data-original-title="x1.5 Beagle BPS">
+                                        <div class="dog-left">
+                                            <span class="dog">Beagle Upgrade</span>
+                                            <span class="cost" id="beaupcost">Cost: 5 Squeaky Toys</span>
+                                        </div>
+                                        <div class="dog-right">
+                                            <span class="number" id="beaupnum"></span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="dropdown-item row top-buffer">
+                                <div class="col-12">
+                                    <button id="burupgrade" class="dog-btn btn btn-light w-100" onclick="BurUpCheck()" data-toggle="tooltip" data-placement="left" data-trigger="hover" data-original-title="x1.5 Burnese BPS">
+                                        <div class="dog-left">
+                                            <span class="dog">Burnese Upgrade</span>
+                                            <span class="cost" id="burupcost">Cost: 5 Squeaky Toys</span>
+                                        </div>
+                                        <div class="dog-right">
+                                            <span class="number" id="burupnum"></span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="dropdown-item row top-buffer">
+                                <div class="col-12">
+                                    <button id="golupgrade" class="dog-btn btn btn-light w-100" onclick="GolUpCheck()" data-toggle="tooltip" data-placement="left" data-trigger="hover" data-original-title="x1.5 Golden BPS">
+                                        <div class="dog-left">
+                                            <span class="dog">Golden Upgrade</span>
+                                            <span class="cost" id="golupcost">Cost: 5 Squeaky Toys</span>
+                                        </div>
+                                        <div class="dog-right">
+                                            <span class="number" id="golupnum"></span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="dropdown-item row top-buffer">
+                                <div class="col-12">
+                                    <button id="husupgrade" class="dog-btn btn btn-light w-100" onclick="HusUpCheck()" data-toggle="tooltip" data-placement="left" data-trigger="hover" data-original-title="x1.5 Husky BPS">
+                                        <div class="dog-left">
+                                            <span class="dog">Husky Upgrade</span>
+                                            <span class="cost" id="husupcost">Cost: 5 Squeaky Toys</span>
+                                        </div>
+                                        <div class="dog-right">
+                                            <span class="number" id="husupnum"></span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="btn-group dropup">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="collapse" data-target="#inv3" style="background-image: url('Res/IM/Plank_09.png'); background-size: 100% 100%;">
+                        Statistics
+                    </button>
+                    <div id="inv3" class="dropdown-menu">
+                        <a href="#" data-toggle="collapse" data-target="#inv3" class="dropdown-header text-right close">X</a>
+                        <h1 style="text-align:center">Coming soon!</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="btn-group dropup">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="collapse" data-target="#inv4" style="background-image: url('Res/IM/Plank_08.png'); background-size: 100% 100%;">
+                        Settings
+                    </button>
+                    <div id="inv4" class="dropdown-menu">
+                        <a href="#" data-toggle="collapse" data-target="#inv4" class="dropdown-header text-right close">X</a>
+                        <div class="dropdown-item row topbuffer settings">
+                                <div class="col-md-auto my-auto">
+                                    <span>Pictures</span>
+                                </div>
+
+                                <div class="col-md-auto my-auto">
+                                    <img src="Res/IM/qmark.png" data-toggle="tooltip" data-placement="top" data-trigger="hover"
+                                         data-original-title="Change the amount of pictures each dog is allowed to have. Lower this if you're having performance issues.">
+                                </div>
+                                <div class="col-7 my-auto">
+                                    <div class="slidecontainer">
+                                        <input type="range" min="0" max="50" value="30" class="slider" id="DogPicRange" onchange="showValue(this.value); changeScrollBar(this.value);">
+                                    </div>
+                                </div>
+                                <div class="col-md-auto my-auto">
+                                    <span id="dogpicamount"> 30</span>
+                                </div>
+                        </div>
+                        <div class="dropdown-item top-buffer text-center">
+                                <div class="resetbut">
+                                    <button id="REWIND" type="button" class="btn w-100" data-toggle="modal" data-target="#rewindmodal" data-boundary="window" onclick="RewindCal()" style="background-image: url('Res/IM/Plank_08.png'); background-size: 100% 100%;">
+                                        Rewind
+                                    </button>
+                                </div>
+                        </div>
+                        <div class="dropdown-item top-buffer text-center">
+                                    <div class="resetbut">
+                                    <button id="RESET" type="button" class="btn w-100" data-toggle="modal" data-target="#resetmodal" data-boundary="window" style="background-image: url('Res/IM/Plank_07.png'); background-size: 100% 100%;">
+                                        Reset Everything
+                                    </button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://discordapp.com/invite/gnXsdcS" target="_blank" id="discord">
+            <img src="Res/IM/discord.png" class="bot-left" data-toggle="tooltip" data-placement="top" data-original-title="Come join and say hey!">
+        </a>
+    </footer>
+</div>
+
+
+<div class="modal fade" id="rewindmodal" tabindex="-1" role="dialog" aria-labelledby="rewindmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="RewindTitle">Are you sure?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="RewindBody">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="REWIND()">It's rewind time!</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="resetmodal" tabindex="-1" role="dialog" aria-labelledby="resetmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ResetTitle">Are you sure?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" onclick="RESET()">Yes! Reset Everything!</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+<script src="JQuery/jquery-3.4.0.min.js"></script>
+<script src="bootstrap-4.3.1-dist/js/bootstrap.bundle.js"></script>
+<script src="Res/CAL/change-theme.js"></script>
+<script src="Res/CAL/settings.js"></script>
+<script src="Res/CAL/site.js"></script>
