@@ -14,3 +14,7 @@ Utilizes:
   - Google Analytics API
   - Css
   - HTML5
+  - Uses user cache to save and store data
+
+
+This is the first website I have ever made. It brought me into the world of web development.
