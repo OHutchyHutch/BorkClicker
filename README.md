@@ -5,14 +5,13 @@ Quick Link: https://ohutchyhutch.github.io/BorkClicker/
 
 
 Utilizes:
-  - Bootstrap 4.3.1 API
-  - JQuery 3.4 API
-  - Javascript/Jquery
+  - Javascript/Jquery 3.4
      - theme.js: Obsolete code used back when there was no background and attractive UI. It changed the white background to black with a smooth animation.
      - settings.js: Allows users to alter a setting that affects the number of dogs on the screen at a given time
      - site.js: An overlord of sorts basically controlling every calculation of the site and putting in the dogs and animations.
   - Google Analytics API
-  - Css
+  - Css/Bootstrap 4.3.1
+     - Uses a combination of bootstrap and custom css to design the page
   - HTML5
   - Uses user cache to save and store data
 
