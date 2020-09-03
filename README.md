@@ -17,3 +17,8 @@ Utilizes:
 
 
 This is the first website I have ever made. It brought me into the world of web development.
+
+
+DISCLAIMER: 
+The art featured on this site is licensed and not for public use.
+You are allowed to copy the site WITHOUT the art given that you provide a link to my github on the site.
